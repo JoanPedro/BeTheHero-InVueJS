@@ -4,15 +4,12 @@ const db = require('./config/db')
 
 app.db = db
 
-/*
 consign()
-    .include('./config/passport.js')
-    .then('./config/middlewares.js')
-    .then('./api/validation.js')
+    .include('./config/middlewares.js')
     .then('./api')
     .then('./config/routes.js')
     .into(app)
-*/
-app.listen(4000, () => {
+
+app.listen(4050, () => {
     console.log('Backend executando...')
 })
