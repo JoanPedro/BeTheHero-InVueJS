@@ -16,17 +16,20 @@
         "body-parser": "^1.18.3",
         "consign": "0.1.6",
         "cors": "2.8.4",
-        "express": "4.17.1",
+        "express": "^4.17.1",
         "jwt-simple": "^0.5.6",
-        "knex": "^0.15.2",
+        "knex": "^0.20.13",
         "moment": "2.22.2",
         "passport": "0.4.1",
         "passport-jwt": "4.0.0",
+        "pg": "^7.18.2",
         "pm2": "^4.0.0",
-        "ws": "^7.2.1",
-        "mysql": "2.18.1"
+        "ws": "^7.2.1"
     },
     "devDependencies": {
-        "nodemon": "1.18.4"
+        "nodemon": "^2.0.2"
+    },
+    "resolutions": {
+        "minipass": "2.7.0"
     }
 }
