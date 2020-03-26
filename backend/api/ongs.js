@@ -1,48 +1,73 @@
 const crypto = require('crypto')
 
 module.exports = app => {
+const { existsOrError } = app.api.validation
 
     const create = async(req, res) => {
-        const ongs = {...req.body }
+        const ong = {...req.body }
         
-        ongs.id = crypto.randomBytes(4).toString('HEX')
+        ong.id = crypto.randomBytes(4).toString('HEX')
 
-        return res.json()
-    }
-    /*
-    const get = (req, res) => {
-        app.db('users')
-            .select('id', 'name', 'email', 'adminMaster', 'adminEnterprise',
-                'manager', 'customer', 'gerencialUrl', 'operacionalUrl')
-            .whereNull('deletedAt')
-            .then(users => res.json(users))
-            .catch(err => res.status(500).send(err))
-    }
-
-    const getById = (req, res) => {
-        app.db('users')
-            .select('id', 'name', 'email', 'adminMaster', 'adminEnterprise',
-                'manager', 'customer', 'gerencialUrl', 'operacionalUrl')
-            .whereNull('deletedAt')
-            .where({ id: req.params.id })
-            .first()
-            .then(user => res.json(user))
-            .catch(err => res.status(500).send(err))
-    }
-
-    const remove = async(req, res) => {
         try {
-            const rowsUpdated = await app.db('users')
-                .update({ deletedAt: new Date() })
-                .where({ id: req.params.id })
-            existsOrError(rowsUpdated, 'Usuário não foi encontrado!')
+            existsOrError(ong.id, 'ID da ONG não validado.')
+            existsOrError(ong.name, 'Nome não informado.')
+            existsOrError(ong.email, 'E-mail não informado.')
+            existsOrError(ong.whatsapp, 'Whatsapp não informado.')
+            existsOrError(ong.city, 'Cidade não informada.')
+            existsOrError(ong.uf, 'Unidade Federal não informada.')
 
-            res.status(204).send()
         } catch (msg) {
-            res.status(400).send(msg)
+            return res.status(400).send(msg)
         }
+
+        await app.db('ongs').insert(ong)
+            .then(_ => res.status(204).send())
+            .catch(err => res.status(500).send(`Email já cadastrado` /* Ou somente send(err) */))
+        
     }
-    */
-    return { create /*, get, getById, remove*/ }
+
+    const list = async (req, res) => {
+
+        await app.db('ongs')
+            .select('*')
+            .then(ongs => res.json(ongs))
+            .catch(err => res.status(500).send(err))
+
+    }
+
+    const listByName = async (req, res) => {
+        
+        await   app.db('ongs')
+                .select('*')
+                .where({ name: req.params.name })
+                .first()
+                .then(ongs => res.json(ongs))
+                .catch(err => res.status(500).send(err))
+    }
+
+    const update = async(req, res) => {
+        const ong = {...req.body }
+
+        try {
+
+            const ongFromDB = await app.db('ongs')
+                .where({ name: req.params.name }).first()
+
+            if (ongFromDB.name) {
+                
+            }
+        } catch (msg) {
+            return res.status(400).send('Nome não encontrado')
+        }
+        
+        await    app.db('ongs')
+                    .update(ong)
+                    .where({ name: req.params.name })
+                    .then(_ => res.status(204).send())
+                    .catch(err => res.status(500).send(err))
+            
+    }
+
+    return { create , list, listByName, update }
 
 }

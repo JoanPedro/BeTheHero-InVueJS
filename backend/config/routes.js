@@ -8,5 +8,9 @@ module.exports = app => {
 
     app.route('/ongs')
         .post(app.api.ongs.create)
-        //.get(app.api.user.get)
+        .get(app.api.ongs.list)
+    
+    app.route('/ongs/:name')
+        .put(app.api.ongs.update)
+        .get(app.api.ongs.listByName)
 }
