@@ -12,6 +12,7 @@ module.exports = app => {
             existsOrError(incident.title, 'Título não informado.')
             existsOrError(incident.description, 'Descrição não informado.')
             existsOrError(incident.value, 'Valor não informado.')
+            
         } catch (msg) {
             return res.status(400).send(msg)
         }

@@ -14,4 +14,7 @@ module.exports = app => {
     
     app.route('/incidents/:id')
         .delete(app.api.incidents.remove)
+    
+    app.route('/profile')
+        .get(app.api.profile.list)
 }
