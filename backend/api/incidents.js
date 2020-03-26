@@ -1,72 +1,62 @@
 module.exports = app => {
 
-    const { existsOrError } = app.api.validation
+    const { existsOrError, equalsOrError } = app.api.validation
 
     const create = async(req, res) => {
-        const ong = {...req.body }
+        const incident = {...req.body}
         
-        ong.id = crypto.randomBytes(4).toString('HEX')
+        incident.ong_id = req.headers.authorization
 
         try {
-            existsOrError(ong.id, 'ID da ONG não validado.')
-            existsOrError(ong.name, 'Nome não informado.')
-            existsOrError(ong.email, 'E-mail não informado.')
-            existsOrError(ong.whatsapp, 'Whatsapp não informado.')
-            existsOrError(ong.city, 'Cidade não informada.')
-            existsOrError(ong.uf, 'Unidade Federal não informada.')
-
+            existsOrError(incident.ong_id, 'ID da ONG não validado.')
+            existsOrError(incident.title, 'Título não informado.')
+            existsOrError(incident.description, 'Descrição não informado.')
+            existsOrError(incident.value, 'Valor não informado.')
         } catch (msg) {
             return res.status(400).send(msg)
         }
-
-        await app.db('ongs').insert(ong)
-            .then(_ => res.status(204).send())
-            .catch(err => res.status(500).send(`Email já cadastrado` /* Ou somente send(err) */))
         
+        const [id] = await app.db('incidents')
+                        .insert(incident)
+                        .catch(err => res.status(500).send(err))
+            
+        return res.json( { id })
     }
 
     const list = async (req, res) => {
 
-        await app.db('ongs')
+        await app.db('incidents')
             .select('*')
-            .then(ongs => res.json(ongs))
+            .then(incidents => res.json(incidents))
             .catch(err => res.status(500).send(err))
 
     }
 
-    const listByName = async (req, res) => {
+    const remove = async (req, res) => {
+
+        const { id } = req.params
+        const ong_id = req.headers.authorization
+
+        const incident = await app.db('incidents')
+                            .select('ong_id')
+                            .where('id', id)
+                            .first()
+                            .catch(err => res.status(500).send(err))
         
-        await   app.db('ongs')
-                .select('*')
-                .where({ name: req.params.name })
-                .first()
-                .then(ongs => res.json(ongs))
-                .catch(err => res.status(500).send(err))
-    }
-
-    const update = async(req, res) => {
-        const ong = {...req.body }
-
         try {
-
-            const ongFromDB = await app.db('ongs')
-                .where({ name: req.params.name }).first()
-
-            if (ongFromDB.name) {
-                
-            }
+            equalsOrError(incident.ong_id, ong_id,
+            'Operation not permitted.')
         } catch (msg) {
-            return res.status(400).send('Nome não encontrado')
+            return res.status(401).send(msg)
         }
-        
-        await    app.db('ongs')
-                    .update(ong)
-                    .where({ name: req.params.name })
-                    .then(_ => res.status(204).send())
-                    .catch(err => res.status(500).send(err))
-            
+
+        await app.db('incidents')
+            .where('id', id)
+            .delete()
+            .then(_ => res.status(204).send())
+            .catch(err => res.status(500).send(err))
     }
 
-    return { create , list, listByName, update }
+    return { create, list, remove }
 
 }

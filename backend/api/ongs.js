@@ -20,7 +20,8 @@ const { existsOrError } = app.api.validation
             return res.status(400).send(msg)
         }
 
-        await app.db('ongs').insert(ong)
+        await app.db('ongs')
+            .insert(ong)
             .then(_ => res.status(204).send())
             .catch(err => res.status(500).send(`Email já cadastrado` /* Ou somente send(err) */))
         

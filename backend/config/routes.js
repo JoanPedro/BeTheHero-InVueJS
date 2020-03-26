@@ -1,10 +1,4 @@
 module.exports = app => {
-    /*
-    app.post('/signup', app.api.user.save)
-    app.post('/signin', app.api.auth.signin)
-    app.post('/validateToken', app.api.auth.validateToken)
-    app.put('/users/:id', app.api.user.save)
-    */
 
     app.route('/ongs')
         .post(app.api.ongs.create)
@@ -13,4 +7,11 @@ module.exports = app => {
     app.route('/ongs/:name')
         .put(app.api.ongs.update)
         .get(app.api.ongs.listByName)
+
+    app.route('/incidents')
+        .post(app.api.incidents.create)
+        .get(app.api.incidents.list)
+    
+    app.route('/incidents/:id')
+        .delete(app.api.incidents.remove)
 }
