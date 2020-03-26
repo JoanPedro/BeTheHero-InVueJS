@@ -17,4 +17,7 @@ module.exports = app => {
     
     app.route('/profile')
         .get(app.api.profile.list)
+
+    app.route('/sessions')
+        .post(app.api.sessions.create)
 }
