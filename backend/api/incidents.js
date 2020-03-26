@@ -32,10 +32,11 @@ module.exports = app => {
         res.header('X-Total-Count', count['count(*)']) /* Retorna a Propriedade Count(x)
                                                         * retornado da consulta dentro da
                                                         variável count */ 
-                                                        
+
         // Paginação: Conceito novo... mainUrl/incidents?page=1 ;page=2; page=3....
         const { page = 1 } = req.query
         await app.db('incidents')
+            .join('ongs', 'ongs.id', '=', 'incidents.ongs_id')
             .limit(5) // Paginação
             .offset((page - 1) * 5) // Paginação
             .select('*')
