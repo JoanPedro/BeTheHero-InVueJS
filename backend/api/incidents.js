@@ -36,10 +36,11 @@ module.exports = app => {
         // Paginação: Conceito novo... mainUrl/incidents?page=1 ;page=2; page=3....
         const { page = 1 } = req.query
         await app.db('incidents')
-            .join('ongs', 'ongs.id', '=', 'incidents.ongs_id')
+            .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
             .limit(5) // Paginação
             .offset((page - 1) * 5) // Paginação
-            .select('*')
+            .select('incidents.*', 'ongs.name', 'ongs.email', 
+                'ongs.whatsapp', 'ongs.city', 'ongs.uf')
             .then(incidents => res.json(incidents))
             .catch(err => res.status(500).send(err))
 
