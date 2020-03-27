@@ -47,7 +47,7 @@ export default {
 
   display: flex;
   align-items: center; /* Verticalmente */
-  justify-content: center; /* Horizontalmente */
+  justify-content: space-between; /* Horizontalmente */
 }
 
 .logon-container section.form {

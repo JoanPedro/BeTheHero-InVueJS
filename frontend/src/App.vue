@@ -54,6 +54,15 @@ button {
   transition: filter 0.2s;
 }
 
+.button-link {
+  border: 0;
+}
+
+.button-link:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .button:hover {
   filter: brightness(90%);
 }

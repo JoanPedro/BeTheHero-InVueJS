@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Logon from '@/components/logon/Logon'
 import Register from '@/components/register/Register'
+import Profile from '@/components/profile/Profile'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -13,6 +14,10 @@ const routes = [{
     name: 'Register',
     path: '/register',
     component: Register
+}, {
+    name: 'Profile',
+    path: '/profile',
+    component: Profile
 }]
 
 const router = new VueRouter({
