@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="">
-      <Logon />
+      <router-view></router-view>
+      <!-- Ou simplesmente <router-view /> -->
   </div>
 </template>
 
@@ -55,6 +56,26 @@ button {
 
 .button:hover {
   filter: brightness(90%);
+}
+
+.back-link {
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+  color: #41414D;
+  font-size: 18px;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.back-link svg {
+  margin-right: 8px;
+}
+
+.back-link:hover {
+  text-decoration: none;
+  color: #41414D;
+  opacity: 0.8;
 }
 
 </style>

@@ -7,11 +7,10 @@
             <h1> Faça seu logon </h1>
             <input placeholder="Sua ID" />
             <button class="button" type="submit"> Entrar </button>
-
-            <a href="/register"> 
-              <LogInIcon size="16" color="#E02041"/>
-              Não tenho cadastro
-            </a>
+              <router-link to="/register" class="back-link"> <!-- Para evitar reload da paǵina. -->
+                <LogInIcon size="16" color="#E02041"/>
+                Não tenho cadastro
+              </router-link>
           </form>
         </section>
         <img :src="heroesImg" alt="Heroes" />
@@ -66,24 +65,4 @@ export default {
   margin-bottom: 32px;
 }
 
-.logon-container section.form form a {
-  display: flex;
-  align-items: center;
-  margin-top: 40px;
-  color: #41414D;
-  font-size: 18px;
-  text-decoration: none;
-  font-weight: bold;
-
-  transition: opacity 0.2s;
-
-}
-
-.logon-container section.form form a svg {
-  margin-right: 8px;
-}
-
-.logon-container section.form form a:hover {
-  opacity: 0.8;
-}
 </style>
