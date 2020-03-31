@@ -4,11 +4,11 @@ O objetivo deste projeto é buscar traduzir o React/React Native em VueJS/VueJS 
 1. Backend Finalizado. (Verificar necessidade de usar Celebrate)
 2. Frontend Modificado.
 <h1 align="center">
-    <img alt="Gerenciador de Finanças" title="#FinancesManager" src="" width="250px" />
+    <img alt="Be The Hero" title="#BeTheHero" src="" width="250px" />
 </h1>
 
 <h4 align="center">
-  🚀 Projeto de Desenvolvimento
+  🚀 Semana Omnistack 11.0
 </h4>
 <p align="center">
   <img alt="Languages" src="https://img.shields.io/github/languages/count/JoanPedro/BeTheHero-InVueJS">
