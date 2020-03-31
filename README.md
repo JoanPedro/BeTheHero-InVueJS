@@ -11,22 +11,13 @@ O objetivo deste projeto é buscar traduzir o React/React Native em VueJS/VueJS 
   🚀 Projeto de Desenvolvimento
 </h4>
 <p align="center">
-  
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/JoanPedro/BeTheHero-InVueJS">
+  <img alt="Languages" src="https://img.shields.io/github/languages/count/JoanPedro/BeTheHero-InVueJS">
 
-
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/JoanPedro/BeTheHero-InVueJS">
-  
+  <img alt="Size" src="https://img.shields.io/github/repo-size/JoanPedro/BeTheHero-InVueJS">
   
   <a href="https://github.com/JoanPedro/BeTheHero-InVueJS/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/JoanPedro/BeTheHero-InVueJS">
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/JoanPedro/BeTheHero-InVueJS">
   </a>
-
-
-  <a href="https://github.com/JoanPedro/BeTheHero-InVueJS/issues">
-    <img alt="Repository issues" src="https://img.shields.io/github/issues/JoanPedro/BeTheHero-InVueJS">
-  </a>
-
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
 </p>
