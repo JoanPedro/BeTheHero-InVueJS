@@ -4,7 +4,7 @@ O objetivo deste projeto é buscar traduzir o React/React Native em VueJS/VueJS 
 1. Backend Finalizado. (Verificar necessidade de usar Celebrate)
 2. Frontend Modificado.
 <h1 align="center">
-    <img alt="Be The Hero" title="#BeTheHero" src="" width="250px" />
+    <img alt="Be The Hero" title="#BeTheHero" src=".github/logo.svg" width="250px" />
 </h1>
 
 <h4 align="center">
@@ -33,7 +33,7 @@ O objetivo deste projeto é buscar traduzir o React/React Native em VueJS/VueJS 
 <br>
 
 <p align="center">
-  <img alt="Frontend" src=".github/devradar.png" width="100%">
+  <img alt="Frontend" src=".github/heroes.png" width="50%">
 </p>
 
 ## :rocket: Tecnologias
@@ -41,19 +41,12 @@ O objetivo deste projeto é buscar traduzir o React/React Native em VueJS/VueJS 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Node.js](https://nodejs.org/en/)
-- [React](https://reactjs.org)
-- [React Native](https://facebook.github.io/react-native/)
-- [Expo](https://expo.io/)
+- [Vue](https://vuejs.org/)
+- [Vue Native](https://vue-native.io/)
 
 ## 💻 Projeto
 
-O DevRadar é um projeto que visa conectar desenvolvedores próximos a você que trabalham com as mesmas tecnologias.
-
-## 🔖 Layout
-
-Você pode baixar o layout do projeto no formato `.sketch` através [desse link](.github/DevRadar.sketch).
-
-Para abrir o arquivo no formato `.sketch` em qualquer sistema operacional utilize a ferramenta [Figma](https://figma.com).
+O Be The Hero é um projeto que visa conectar ONGs...
 
 ## 🤔 Como contribuir
 
@@ -67,7 +60,3 @@ Depois que o merge da sua pull request for feito, você pode deletar a sua branc
 ## :memo: Licença
 
 Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para mais detalhes.
-
----
-
-Feito com ♥ by Rocketseat :wave: [Entre na nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
