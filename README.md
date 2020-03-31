@@ -1,8 +1,3 @@
-# VueJS-SemanaOmnistack
-O objetivo deste projeto é buscar traduzir o React/React Native em VueJS/VueJS Native e incluir melhores práticas no backend.
-
-1. Backend Finalizado. (Verificar necessidade de usar Celebrate)
-2. Frontend Modificado.
 <h1 align="center">
     <img alt="Be The Hero" title="#BeTheHero" src=".github/logo.svg" width="250px" />
 </h1>
