@@ -13,7 +13,7 @@
     "bootstrap-vue": "^2.2.2",
     "feather-icons": "^4.26.0",
     "font-awesome": "^4.7.0",
-    "highlight.js": "^9.16.1",
+    "highlight.js": "^10.1.2",
     "jquery": "^3.4.1",
     "liquor-tree": "0.2.7",
     "minimist": ">=1.2.2",
